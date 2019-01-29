@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Host Event</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<link rel="shortcut icon" href="images/logo/logo_ibento.png">
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="hostevent.css">
+
+		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/data.js"></script>
+		<script src="dashboard.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="logo">
+				<i class="fa fa-tachometer"></i>
+				<span>Ibento</span>
+			</div>
+			<a href="#" class="nav-trigger"><span></span></a>
+		</div>
+		<div class="side-nav">
+			<div class="logo">
+				<span>Ibento</span>
+			</div>
+			<nav>
+				<ul>
+					<li>
+						<a href="dasboard.html">
+							<span><i class="fa fa-user"></i></span>
+							<span>Dashboard</span>
+						</a>
+					</li>
+					<li>
+							<a href="#">
+	
+								<span><i class="fa fa-cubes"></i></span>
+								<span>View Events</span>
+							</a>
+						</li>
+						<li class="active">
+								<a href="host.html" target="_blank">
+		
+									<span><i class="fa fa-cubes"></i></span>
+									<span>Host Events</span>
+								</a>
+							</li>
+						<li>
+								<a href="#">
+		
+									<span><i class="fa fa-credit-card"></i></span>
+									<span>Blog</span>
+								</a>
+							</li>
+					<li>
+						<a href="#">
+							<span><i class="fa fa-cart-plus"></i></span>
+							<span>Equipment Rental</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span><i class="fa fa-bar-chart"></i></span>
+							<span>Venue Rental</span>
+						</a>
+					</li>
+					<li>
+							<a href="#">
+								<span><i class="fa fa-user"></i></span>
+								<span>Profile</span>
+							</a>
+						</li>
+					<li>
+							<a href="#">
+								<span><i class="fa fa-minus-circle"></i></span>
+								<span>Log Out</span>
+							</a>
+						</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="main-content">
+			<div class="title">
+				Host Event
+			</div>
+			<div class="main">
+                <h1></h1>
+				<div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-4">
+                            <input type="text" placeholder="Name" name="Name" required>
+                            <input type="text" placeholder="Designation" name="Designation" required>
+                            <input type="text" placeholder="Email Id" name="Email"required>
+                            <input type="text" placeholder="Phone Number" name="phone"required>
+                            <textarea type="text" placeholder="Address" name="address" rows="2" cols="45"required></textarea>
+                            <input type="text" placeholder="City" name="city"required>
+                            <input type="text" placeholder="Pin Code" name="pin"required>
+                            <div class="event-select">
+                                <ul>
+                               <li><input type="radio" id="Corporate" name="EventType"><label for="Corporate">Corporate</label></li>
+                               <li><input type="radio" id="Conference" name="EventType"><label for="Conference">Conference</label></li>
+                                <li><input type="radio" id="Seminar" name="EventType"><label for="Seminar">Seminar</label></li>
+                                <li><input type="radio" id="Exhibition" name="EventType"><label for="Exhibition">Exhibition</label></li>
+                                <li><input type="radio" id="Wedding" name="EventType"><label for="Wedding">Wedding</label></li>
+                                <li><input type="radio" id="ProductLaunch" name="EventType"><label for="ProductLaunch">Product Launch</label></li>
+                                <li><input type="radio" id="Promotion" name="EventType"><label for="Promotion">Promotion</label></li>
+                                <li><input type="radio" id="IncentiveTour" name="EventType"><label for="IncentiveTour">Incentive Tour</label>   </li>          
+                                <li><input type="radio" id="Award" name="EventType"><label for="Award">Award</label></li>
+                                <li><input type="radio" id="Entertainment" name="EventType"><label for="Entertainment">Entertainment</label></li>
+                            </ul>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                                <input type="text" placeholder="Event Name" name="EventName"required>
+                                <label for="StartDate" style="color:black;">Start Date</label>
+                                <input type="date" placeholder="Event Start Date" id="StartDate" name="StartDate"required>
+                                <label for="EndDate" style="color:black;">End Date</label>
+                                <input type="date" placeholder="Event End Date" id="EndDate"name="EndDate"required>
+                                <input type="text" placeholder="Estimated Number of Attendees" name="Attendees"required>
+                                <input type="text" placeholder="Contract Signer" name="Contract"required>
+                                <input type="text" placeholder="City" name="EventCity"required>
+                                <input type="text" placeholder="Enter Image URL" name="image" required>
+                                <input type="text" placeholder="Enter Video URL" name="video">
+                                <input type="text" placeholder="Enter Google Map Embedded Code" name="map">
+                                <textarea type="text" placeholder="Description" name="desc" rows="2" cols="45"></textarea>
+                                <center><input type="submit" value="Submit"></center>
+                              </div>
+                </div>
+		
+            </div>
+            </div>
+		<footer>
+				<div class="copy">
+						<p>&copy; Copyright 2019 <a href="index.html">Ibento</a></p>
+					  </div>
+		</footer>
+	</body>
+</html>
