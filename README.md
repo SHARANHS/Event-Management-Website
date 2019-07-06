@@ -1,2 +1,0 @@
-# internship
-event management website
