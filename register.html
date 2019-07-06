@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="libs/css/register.css">
+    <link rel="shortcut icon" href="images/logo/logo_ibento.png">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="assets/data/register.js"></script>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+</head>
+<body ng-app="myApp">
+        <div id="loader"></div>
+        <style>
+            #loader {
+                 position: fixed;
+                 width: 100%;
+                 height: 100vh;
+                 z-index: 1;
+                 overflow: visible;
+                background: url('loader.gif') no-repeat center center;
+    }
+        </style>
+        <script type="text/javascript">
+            
+            var loader;
+            function loadNow(opacity) {
+                if(opacity <= 0) {
+                    displayContent();
+                }
+                else {
+                    loader.style.opacity = opacity;
+                    window.setTimeout(function() {
+                        loadNow(opacity - 0.05)
+                    }, 10);
+                }
+            }
+            
+            function displayContent() {
+                loader.style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            }
+            
+            document.addEventListener("DOMContentLoaded", function() {
+                loader = document.getElementById('loader');
+                loadNow(1);
+            });
+            
+        </script>
+    <div class="container" ng-controller="Register">
+        <form  name="signup">
+                <h1>Register</h1>
+                <div class="question">
+                        <span ng-show="signup.name.$error.required">Required</span>
+                        <span ng-show="signup.name.$error.name">Not a Name</span>
+                        <input type="text" name="name" ng-model="name" id="name" class="form-control input-sm"  required>
+                  <label>Name</label>
+                </div>
+                <div class="question">
+                        <span ng-show="signup.dob.$error.required">Required</span>
+                        <input type="text" name="dob" ng-model="dob" id="dob" class="form-control input-sm"required>
+                  <label>Date Of Birth [dd-mm-yyyy]</label>
+                </div>
+                <div class="question">
+                    <span ng-show="signup.email.$error.required">Required</span>
+                    <span ng-show="signup.email.$error.email">Not a Email</span>
+                    <input type="email"  name="email" ng-model="email" id="email" class="form-control input-sm"  pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
+                 <label>Email</label>
+                 </div>
+                <div class="question">
+                        <span ng-show="signup.password.$error.required">Required  (min-6,max-10) </span>
+                        <span ng-show="signup.password.$error.minlength">too short!</span>
+                        <span ng-show="signup.password.$error.maxlength">too long!</span>
+                        <input type="password"  name="password" ng-model="password" id="password" class="form-control input-sm" ng-minlength="6" ng-maxlength="10" required>
+                  <label>Password</label>
+                </div>
+                <div class="question">
+                        <span ng-show="signup.confirmpassword.$error.required">Required  (min-6,max-10)</span>
+                        <span ng-show="signup.confirmpassword.$error.minlength">too short!</span>
+                        <span ng-show="signup.confirmpassword.$error.maxlength">too long!</span>
+                        <input type="password"  name="confirmpassword" ng-model="confirmpassword" id="confirmpassword" class="form-control input-sm" ng-minlength="6" ng-maxlength="10" required>
+                  <label>Confirm Password</label>
+                </div>
+                <div class="question">
+                        <span ng-show="signup.gender.$error.required">Required</span>
+                        <input type="text"  name="gender" ng-model="gender" id="gender" class="form-control input-sm" required>
+                        <label>Gender</label>
+                </div>
+                 <div class="question">
+                        <span ng-show="signup.phone.$error.required">Required</span>
+                        <input type="number" name="phone" ng-model="phone"  id="phone" class="form-control input-sm" required>
+                        <label>Phone Number</label>
+                </div>
+                <div class="question">
+                        <span ng-show="signup.city.$error.required">Required</span>
+                        <input type="text" name="city" ng-model="city" id="city" class="form-control input-sm" required>
+                        <label>City</label>
+                </div>
+                <div class="question">
+                        <span ng-show="signup.State.$error.required">Required</span>
+                        <input type="text" name="State" ng-model="state" id="State" class="form-control input-sm" required>
+                        <label>State</label>
+                </div>
+                <center><button ng-disabled="signup.$invalid" onclick="validate();" class="btn-block" ng-click="submit()">Submit</button></center>
+              </form>
+            </div>
+</body>
+<style>
+input.ng-invalid{
+    border:1px solid red !important;
+}
+span{
+    font-size:12px !important; 
+    padding-left: 20px;
+}
+</style>
+<script type="text/javascript">
+    function validate()
+    {
+        var name = document.getElementById('name').value;
+        var dob = document.getElementById('dob').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var confirmpassword = document.getElementById('confirmpassword').value;
+        var gender = document.getElementById('gender').value;
+        var phone = document.getElementById('phone').value;
+        var city = document.getElementById('city').value;
+        var State = document.getElementById('State').value;
+        if((name != null) && (dob != null) && (email != null) && (password != null) && (confirmpassword != null) && (gender != null) && (phone != null) && (city != null) && (State != null))
+        {
+            if(password == confirmpassword)
+            {
+                console.log("Registered");
+                swal("Submitted!", "You Sucessfully Registered!","success");
+            }
+            else if(phone.length() != 10){
+                swal("Oops!", "Please Check your Phone Number !","info");
+            }
+            else
+            {
+                swal("Oops!", "Please Check your password!","info");
+            }
+        }
+        else
+        {
+            console.log("Error");
+            swal("Submitted!", "Something went wrong please try again!", "info");   
+        }
+    }
+
+
+</script>
+</html>

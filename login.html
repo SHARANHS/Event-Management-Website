@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login </title>
+        <link rel="stylesheet" href="libs/css/login.css">
+        <link rel="shortcut icon" href="images/logo/logo_ibento.png">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> 
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="assets/data/login.js"></script>
+</head>
+<body ng-app="myApp">
+        <div id="loader"></div>
+        <style>
+            #loader {
+                 position: fixed;
+                 width: 100%;
+                 height: 100vh;
+                 z-index: 1;
+                 overflow: visible;
+                background:white url('loader.gif') no-repeat center center;
+    }
+        </style>
+        <script type="text/javascript">
+            
+            var loader;
+            function loadNow(opacity) {
+                if(opacity <= 0) {
+                    displayContent();
+                }
+                else {
+                    loader.style.opacity = opacity;
+                    window.setTimeout(function() {
+                        loadNow(opacity - 0.05)
+                    }, 10);
+                }
+            }
+            function displayContent() {
+                loader.style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            }
+            document.addEventListener("DOMContentLoaded", function() {
+                loader = document.getElementById('loader');
+                loadNow(1);
+            });
+        </script>
+    <div class="container-fluid bg">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12"></div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+<form class="form-container" ng-controller="login">
+    <center><h1 style="border-top:2px solid white;">Login</h1></center>
+    <div id="namer">
+        <p>{{value}}</p>
+            <div class="question">
+                    <input type="email"  name="email" ng-model="email" id="email" class="form-control input-sm"  pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
+                 <label>Email</label>
+                 </div>
+                <div class="question">
+                        <input type="password"  name="password" ng-model="password" id="password" class="form-control input-sm" ng-minlength="6" ng-maxlength="10" required>
+                  <label>Password</label>
+                </div>
+           <center><button onclick="validate();" class="btn-block" ng-click="submit()">Submit</button></center>
+            </div>
+</form>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        </div>
+    </div>
+</body>
+<!-- <script type="text/javascript">
+    function validate(){
+      var password=document.getElementById('password').value;
+      var email = document.getElementById('email').value;
+      if((password==null)||(email==null))
+      {
+        swal("Oops!", "Please Fill all the data!","info");
+      }
+      else{
+        swal("Submitted!", "You Sucessfully Registered!","success");
+      }
+    }
+</script> -->
+</html>
